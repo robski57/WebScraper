@@ -7,7 +7,10 @@ r = requests.get(url)
 
 soup = BeautifulSoup(r.content)
 
+links = soup.find_all("title")
+links = soup.find_all("p","title")
 links = soup.find_all("a")
+links = soup.find_all(id="link2")
 
 for link in links:
     print("<a href='%s'>%s</a>"%(link.get("href"), link.text))
